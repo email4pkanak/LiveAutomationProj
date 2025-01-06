@@ -49,7 +49,7 @@ public class TC_RF_001 {
 		driver.findElement(By.xpath("//a[text()='Continue']")).click();
 		Assert.assertTrue(driver.findElement(By.xpath("//*[@id=\"content\"]/h2[1]")).isDisplayed());
 		
-		
+		driver.quit();
 	}
 	
 	public String genarateEmail( ) {
