@@ -9,6 +9,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import utils.CommonMethods;
+
 public class TC_RF_001 {
 	
 	@Test
@@ -24,7 +26,7 @@ public class TC_RF_001 {
 		
 		driver.findElement(By.id("input-firstname")).sendKeys("Priyanka");
 		driver.findElement(By.id("input-lastname")).sendKeys("Kanak");
-		driver.findElement(By.id("input-email")).sendKeys(genarateEmail());
+		driver.findElement(By.id("input-email")).sendKeys(CommonMethods.generateNewEmail());
 		driver.findElement(By.id("input-telephone")).sendKeys("1234567890");
 		driver.findElement(By.id("input-password")).sendKeys("test12345");
 		driver.findElement(By.id("input-confirm")).sendKeys("test12345");
@@ -50,14 +52,6 @@ public class TC_RF_001 {
 		Assert.assertTrue(driver.findElement(By.xpath("//*[@id=\"content\"]/h2[1]")).isDisplayed());
 		
 		driver.quit();
-	}
-	
-	public String genarateEmail( ) {
-		String dateString = new Date().toString();
-		String noSpace = dateString.replaceAll("\\s", "");
-		String finalDate = noSpace.replaceAll("\\:","");
-		String email = finalDate+"@gmail.com";
-		return email;
 	}
 
 }

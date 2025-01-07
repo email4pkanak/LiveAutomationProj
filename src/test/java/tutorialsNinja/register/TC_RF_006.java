@@ -8,6 +8,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import utils.CommonMethods;
+
 public class TC_RF_006 {
 	
 	@Test
@@ -21,7 +23,7 @@ public class TC_RF_006 {
 		
 		driver.findElement(By.id("input-firstname")).sendKeys("Priyanka");
 		driver.findElement(By.id("input-lastname")).sendKeys("Kanak");
-		driver.findElement(By.id("input-email")).sendKeys(generateEmail());
+		driver.findElement(By.id("input-email")).sendKeys(CommonMethods.generateNewEmail());
 		driver.findElement(By.id("input-telephone")).sendKeys("1234567890");
 		driver.findElement(By.id("input-password")).sendKeys("test12345");
 		driver.findElement(By.id("input-confirm")).sendKeys("test12345");
@@ -34,14 +36,6 @@ public class TC_RF_006 {
 		Assert.assertTrue(driver.findElement(By.xpath("//ul[@class='breadcrumb']//a[text()='Newsletter']")).isDisplayed());
 		Assert.assertTrue(driver.findElement(By.xpath("//input[@name='newsletter'][@value='0']")).isDisplayed());
 		driver.quit();
-		
-		
-		
-	}
-	public String generateEmail() {
-		String dateString = new Date().toString().replaceAll("\\s", "").replaceAll("\\:","");
-		String email = dateString+"@gmail.com";
-		return email;
 		
 	}
 

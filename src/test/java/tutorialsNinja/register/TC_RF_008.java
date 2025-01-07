@@ -11,6 +11,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import utils.CommonMethods;
+
 public class TC_RF_008 {
 	
 	@Test
@@ -26,7 +28,7 @@ public class TC_RF_008 {
 		
 		driver.findElement(By.id("input-firstname")).sendKeys("Kag");
 		driver.findElement(By.id("input-lastname")).sendKeys("kan");
-		driver.findElement(By.id("input-email")).sendKeys(generateEmail());
+		driver.findElement(By.id("input-email")).sendKeys(CommonMethods.generateNewEmail());
 		driver.findElement(By.id("input-telephone")).sendKeys("0987890987");
 		driver.findElement(By.id("input-password")).sendKeys("1234");
 		driver.findElement(By.id("input-confirm")).sendKeys("786");
@@ -40,12 +42,6 @@ public class TC_RF_008 {
 		driver.quit();
 		
 		
-	}
-	public String generateEmail() {
-		Date date = new Date();
-		String currentTime = date.toString().replaceAll("\\s","").replaceAll("\\:","");
-		String email = currentTime+"@gmail.com";
-		return email;
 	}
 
 }
