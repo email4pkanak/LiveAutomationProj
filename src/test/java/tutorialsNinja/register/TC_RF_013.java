@@ -6,7 +6,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import utils.CommonMethods;
 
 public class TC_RF_013 {
 	
@@ -22,7 +21,7 @@ public class TC_RF_013 {
 		driver.findElement(By.linkText("Register")).click();
 		
 		String expectedFNamePlaceHolder = "First Name";
-		Assert.assertEquals(driver.findElement(By.id("input-firstname")).getAttribute("placeholder"),expectedFNamePlaceHolder);
+		Assert.assertEquals(driver.findElement(By.id("input-firstname")).getDomAttribute("placeholder"),expectedFNamePlaceHolder);
 		
 		String expectedLNamePlaceholder = "Last Name";
 		Assert.assertEquals(driver.findElement(By.id("input-lastname")).getAttribute("placeholder"),expectedLNamePlaceholder);
